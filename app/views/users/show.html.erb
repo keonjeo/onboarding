@@ -20,5 +20,20 @@
   <%= @user.gender %>
 </p>
 
+<p>
+  <strong>Address:</strong>
+  <%= @user.address['country'] %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @user.address['address_1'] %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @user.address['address_2'] %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

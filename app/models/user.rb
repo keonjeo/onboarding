@@ -8,8 +8,12 @@ class User
   field :gender, type: String
   field :address, type: Hash, default: { country: nil, adrress_1: nil, adrress_2: nil }
 
+  # Validations
   validates_presence_of :first_name, :last_name
   validates_numericality_of :age, greater_than: 0, only_integer: true
   validates :gender, inclusion: { in: %w(male female others) }
+
+  # Associations
+  has_one :shop
 
 end

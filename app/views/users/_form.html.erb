@@ -19,6 +19,14 @@
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.select(:gender, options_for_select([['Male', 'male'], ['Female', 'female'], ['Others', 'others']], @user.gender)) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

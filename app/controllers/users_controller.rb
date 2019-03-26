@@ -61,6 +61,12 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/count
+  # GET /users/count.json
+  def count
+    @users_count = User.count
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users do
     get :count, on: :collection
+    get :name, on: :member
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

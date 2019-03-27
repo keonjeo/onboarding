@@ -38,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # pretty print on the console
 gem 'awesome_print'
 
+# Bundler-like DSL + rake tasks for Bower on Rails
+gem 'bower-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

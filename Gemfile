@@ -57,9 +57,9 @@ end
 group :test do
   gem 'fuubar', '~> 2.3'                     ## Rspec output formatting
   gem 'database_cleaner', '~> 1.6.2'         ## Database Reset
-  gem 'shoulda-matchers', '~> 3.1'           ## Rspec Matchers
   gem 'simplecov', '~> 0.16.1'               ## Code coverage
   gem 'timecop', '~> 0.9.1'                  ## Time Sensitive Spec Helpers
   gem 'factory_bot_rails', '~> 4.0'          ## Rails object test data library
+  gem 'mongoid-rspec'                        ## RSpec matchers and macros for Mongoid
 end
 

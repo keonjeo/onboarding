@@ -19,4 +19,4 @@
 /.byebug_history
 
 # Ignore the coverage/ directory
-/coverager
+/coverage/*

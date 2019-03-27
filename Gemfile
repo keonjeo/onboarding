@@ -41,6 +41,9 @@ gem 'awesome_print'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # RSpec for Rails-3+
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
@@ -49,5 +52,14 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem 'fuubar', '~> 2.3'                     ## Rspec output formatting
+  gem 'database_cleaner', '~> 1.6.2'         ## Database Reset
+  gem 'simplecov', '~> 0.16.1'               ## Code coverage
+  gem 'timecop', '~> 0.9.1'                  ## Time Sensitive Spec Helpers
+  gem 'factory_bot_rails', '~> 4.0'          ## Rails object test data library
+  gem 'mongoid-rspec'                        ## RSpec matchers and macros for Mongoid
 end
 

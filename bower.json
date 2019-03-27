@@ -1,0 +1,14 @@
+{
+  "name": "onboarding",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "~1.0.7"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

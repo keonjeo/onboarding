@@ -20,3 +20,6 @@
 
 # Ignore the coverage/ directory
 /coverage/*
+
+# Ignore the configuration file of the SFTP
+sftp-config.json

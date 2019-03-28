@@ -1,0 +1,30 @@
+{
+  "name": "onboarding",
+  "version": "1.0.0",
+  "description": "== README",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "jquery": "~3.3.1",
+    "popper.js": "^1.14.7",
+    "angular": "^1.7.8",
+    "bootstrap": "~4.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keonjeo/onboarding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keonjeo/onboarding/issues"
+  },
+  "homepage": "https://github.com/keonjeo/onboarding#readme"
+}

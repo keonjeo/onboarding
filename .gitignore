@@ -19,7 +19,10 @@
 /.byebug_history
 
 # Ignore the coverage/ directory
-/coverage/*
+coverage/*
 
 # Ignore the configuration file of the SFTP
 sftp-config.json
+
+# Ignore the node_modules/ directory
+node_modules/*

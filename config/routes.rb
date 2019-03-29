@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'dashboard#index'
+
   resources :users do
     get :count, on: :collection
     get :name, on: :member

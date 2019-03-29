@@ -81,6 +81,13 @@ myApp.controller("UserShowCtr", ['$scope', '$routeParams', 'userService', functi
     );
 }]);
 
+// Define the Directives
+myApp.directive('userForm', function() {
+    return {
+        templateUrl: '/templates/users/_form.html'
+    }
+})
+
 
 //Routes
 myApp.config([

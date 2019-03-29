@@ -16,5 +16,5 @@
 //= require angular
 //= require angular-route
 //= require angular-resource
-//= require angular-ui-bootstrap
+//= require bootstrap/dist/js/bootstrap
 //= require_tree .

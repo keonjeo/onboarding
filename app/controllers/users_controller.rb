@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token, if: Proc.new { |c| c.request.format == 'application/json' }
+
+  skip_before_action :verify_authenticity_token, if: :json_request?
 
   before_action :set_user, only: [:show, :edit, :update, :destroy, :name]
   respond_to :json, :html
@@ -97,5 +98,9 @@ class UsersController < ApplicationController
           address: [:country, :address_1, :address_2]
         }
       )
+    end
+
+    def json_request?
+      request.format.json?
     end
 end

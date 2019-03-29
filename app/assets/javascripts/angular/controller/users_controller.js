@@ -1,6 +1,6 @@
 var myApp = angular.module('myapplication', ['ngRoute', 'ngResource']);
 
-//Factory
+//Use the Factory to define the Users Service
 myApp.factory('Users', ['$resource',function($resource){
     return $resource('/users.json', {},{
         query: { method: 'GET', isArray: true },
@@ -8,6 +8,7 @@ myApp.factory('Users', ['$resource',function($resource){
     })
 }]);
 
+//Use the Factory to define the User Service
 myApp.factory('User', ['$resource', function($resource){
     return $resource('/users/:id.json', {}, {
         show: { method: 'GET' },
@@ -16,11 +17,18 @@ myApp.factory('User', ['$resource', function($resource){
     });
 }]);
 
+//Use the Factory to define the userService to fetch the data related to the user
+myApp.factory('userService', ['$http', function ($http) {
+    return {
+        getUser: function(userId) {
+            return $http.get('/users/' + userId + '.json');
+        }
+    }
+}]);
+
 //Controller
-myApp.controller("UserListCtr", ['$scope', '$http', '$resource', 'Users', 'User', '$location', function($scope, $http, $resource, Users, User, $location) {
-
+myApp.controller("UserListCtr", ['$scope', '$resource', 'Users', 'User', '$location', function($scope, $resource, Users, User, $location) {
     $scope.users = Users.query();
-
     $scope.deleteUser = function (userId) {
         if (confirm("Are you sure you want to delete this user?")){
             User.delete({ id: userId }, function(){
@@ -45,7 +53,7 @@ myApp.controller("UserUpdateCtr", ['$scope', '$resource', 'User', '$location', '
 }]);
 
 myApp.controller("UserAddCtr", ['$scope', '$resource', 'Users', '$location', function($scope, $resource, Users, $location) {
-    $scope.user = {addresses: [{street1: '', street2: '', city: '', state: '', country: '', zipcode: '' }]}
+    $scope.user = {}
     $scope.save = function () {
         if ($scope.userForm.$valid){
             Users.create({user: $scope.user}, function(){
@@ -57,8 +65,20 @@ myApp.controller("UserAddCtr", ['$scope', '$resource', 'Users', '$location', fun
     };
 }]);
 
-myApp.controller("UserShowCtr", ['$scope', '$resource', 'User', '$location', '$routeParams', function($scope, $resource, User, $location, $routeParams) {
-    $scope.user = User.get({id: $routeParams.id});
+// myApp.controller("UserShowCtr", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
+//     $scope.user = User.get({id: $routeParams.id});
+// }]);
+
+myApp.controller("UserShowCtr", ['$scope', '$routeParams', 'userService', function($scope, $routeParams, userService) {
+    var promise = userService.getUser($routeParams.id);
+    promise.then(
+        function(payload) {
+            $scope.user = payload.data;
+        },
+        function(errorPayload) {
+            console.log('failure loading user', errorPayload);
+        }
+    );
 }]);
 
 
